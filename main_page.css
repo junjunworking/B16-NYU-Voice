@@ -1,0 +1,27 @@
+body {
+    background-color: rgba(232, 212, 228, 1);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+
+ul {
+    list-style-type: none;
+    flex-direction: row;
+    font-size: 40px;
+    display: flex;
+    gap: 70px;
+    justify-content:center;
+}
+
+.main{
+    height: 40px;
+    width: 300px;
+    background-color: white;
+
+    
+}
+
