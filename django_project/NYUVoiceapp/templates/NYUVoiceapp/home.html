@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<style>
+		body {
+		    background-color: rgba(232, 212, 228, 1);
+		}
+
+		h1 {
+		    color: white;
+		    text-align: center;
+		    font-size: 70px;
+		}
+
+		ul {
+		    list-style-type: none;
+		    flex-direction: row;
+		    font-size: 40px;
+		    display: flex;
+		    gap: 70px;
+		    justify-content:center;
+		}
+
+		.main{
+		    height: 40px;
+		    width: 300px;
+		    background-color: white;
+
+		    
+		}
+
+
+	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main_page.css">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+    <h1>NYU Voice Home</h1>
+    <ul>
+    	<a href="{% url 'NYUVoiceapp-home' %}">
+        <li><button class="main" onclick="">main page</button></li></a>
+    	<a href="{% url 'NYUVoiceapp-CourseReview' %}">
+        <li><button class="main">course review</button></li></a>
+        <li><button class="main">restaurant rating</button></li>
+    </ul>
+
+</html>
+</body>
+</html>
