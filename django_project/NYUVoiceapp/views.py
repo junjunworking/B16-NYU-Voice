@@ -9,7 +9,6 @@ def home(request):
 	return render(request, "NYUVoiceapp/home.html")
 
 def CourseReview(request):
-
 	context={
 		'CourseReviews': CourseReview1.objects.all()
 	}
@@ -25,3 +24,6 @@ def signup(request):
 		form = UserCreationForm()
 
 	return render(request, "NYUVoiceapp/signup.html", {'form':form})
+
+def login_failed(request):
+    return render(request, 'login_failed.html')
