@@ -1,0 +1,61 @@
+body{
+	background-color: rgba(232, 212, 228, 1);
+}
+
+
+#wrap{
+	background-color: rgba(232, 212, 228, 1);
+/*	border : solid 1px red;*/
+/*	border-radius: 25px;*/
+
+}
+
+header{
+	text-align: center;
+}
+
+nav ul{
+	list-style: none;
+	padding: 0px;
+	margin : 0px;
+	flex-direction: column;
+/*	border : solid 1px red;*/
+}
+
+nav ul li{
+	padding: 10px;
+	height:30px;
+/*	margin : 10px;*/
+	border : solid 1px black;
+
+}
+
+
+.menu {
+  width: 25%;
+  float: left;
+  height: 300px;
+}
+
+.column1{
+	flex-direction: column;
+	margin: 24px;
+	padding:40px;
+	width: 60%;
+	display : flex;
+	border: solid 1px black;
+/*  width: 50%;
+ float: left;
+ height: 300px;*/
+}
+
+input[type=text], input[type=Email], input[type=gender] {
+  text-align: center;
+  width: 50%;
+  padding: 12px
+  margin: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+

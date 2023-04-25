@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="course_review.css">
+  </head>
+  <body>
+    <header>
+      <h1>NYU Voice - Course Review</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Find a Professor</a></li>
+        <li><a href="#">Write a Review</a></li>
+      </ul>
+    </nav>
+    <main>
+      <form>
+        <label for="subject-code">Subject Code:</label>
+        <input type="text" id="subject-code" name="subject-code">
+      
+        <label for="school-code">School Code:</label>
+        <input type="text" id="school-code" name="school-code">
+      
+        <label for="course-number">Course number:</label>
+        <input type="text" id="course-number" name="course-number">
+      
+        <input type="submit" value="Search" style="margin-left: px;">
+      </form>
+      
+      <style>
+        /* add space between label and search field */
+        label {
+          margin-right: 10px;
+        }
+      </style>
+    </main>
+
+
+    <main>
+      <div class="review-block">
+        <h2 class="review-title">CS 4523 Senior Design</h2>
+        <div class="review-content">
+          <div class="review-rating">5/5</div>
+          <p>This course is wonderful.</p>
+        </div>
+      </div>
+    </main>
+    
+    <style>
+      .review-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+      }
+      .review-title {
+        margin: 12;
+        font-size: 24px;
+        /* text-align: center; */
+        flex-basis: 50%;
+      }
+
+      
+      .review-rating {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #c380ef;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 40px;
+        margin-left: 350px;
+      }
+      .review-content {
+        /* display: flex; */
+        align-items: center;
+        flex-basis: 50%;
+        justify-content: space-between;
+      }
+      .review-content p {
+        font-size: 16px;
+        color: #333;
+      }
+    </style>
+    </main>
+
+  </body>
+  </html>
