@@ -61,10 +61,10 @@
 	    <br>
 	    <br>
 	   	<p class="card-text">{{ CourseReview.date_posted|date:"F d, Y" }}
-	   	</p>
-	   	{% if object.author == user %}
-	   		<a href= "{% url 'course-delete' object.id %} "><h1>Delete</h1></a>
+	   	{% if CourseReview.author == user %}
+	   		<a href="{% url 'course-delete' CourseReview.id %}">Delete</a>
 	   	{% endif %}
+	   </p>
 	  </div>
 	</div>
 	{% endfor %}

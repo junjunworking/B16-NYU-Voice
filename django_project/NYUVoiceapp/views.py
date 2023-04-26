@@ -37,11 +37,12 @@ def signup(request):
 		form = UserSignupForm(request.POST)
 		if form.is_valid():
 			form.save()
-			group = form.cleaned_data["Student"]
-			if group ==  True:
-				return redirect("NYUVoiceapp-home")
-			else:
-				return redirect("NYUVoiceapp-staffhome")
+			return redirect("/login")
+			# group = form.cleaned_data["Student"]
+			# if group ==  True:
+			# 	return redirect("NYUVoiceapp-home")
+			# else:
+			# 	return redirect("NYUVoiceapp-staffhome")
 	else:
 		form = UserSignupForm()
 
@@ -75,6 +76,12 @@ def login(request):
 class CourseListView(ListView):
 	model = CourseReview1
 	template_name="NYUVoiceapp/CourseReview.html"
+	context_object_name = 'CourseReviews'
+	ordering = ['-date_posted']
+
+class StaffCourseListView(ListView):
+	model = CourseReview1
+	template_name="NYUVoiceapp/staffcoursereview.html"
 	context_object_name = 'CourseReviews'
 	ordering = ['-date_posted']
 

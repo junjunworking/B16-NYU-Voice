@@ -8,6 +8,6 @@ urlpatterns = [
     path('course/new/', views.CourseCreateView.as_view(), name='course-create'),
     path('course/<int:pk>/delete/', views.CourseDeleteView.as_view(), name='course-delete'),
     path("staffhome/",views.staffhome, name="NYUVoiceapp-staffhome"),
-    path("staffcoursereview/", views.staffcoursereview, name= "NYUVoiceapp-staffcoursereview"),
+    path("staffcoursereview/", views.StaffCourseListView.as_view(), name= "NYUVoiceapp-staffcoursereview"),
 
 ]
