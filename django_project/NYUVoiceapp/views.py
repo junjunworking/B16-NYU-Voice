@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .models import CourseReview as CourseReview1
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from .forms import UserSignupForm, UserLoginForm
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+ 
 
 def home(request): 
 	#return what we want user to see
@@ -49,7 +52,7 @@ def profile(request):
 
 def login(request):
 	if request.method == 'POST':
-		form = UserLoginForm(request.POST)
+		form = UserLoginForm(request,data = request.POST)
 		if form.is_valid():
 			username = form.cleaned_data.get('username')
 			password = form.cleaned_data.get('password')
@@ -57,6 +60,7 @@ def login(request):
 			if user is None:
 				return render(request, "NYUVoiceapp/login.html", {'form':form})
 			else:
+				auth_login(request, user)
 				group = form.cleaned_data["Student"]
 				if group == True:
 					return redirect("NYUVoiceapp-home")
@@ -65,4 +69,4 @@ def login(request):
 	else:
 		form = UserLoginForm()
 
-	return render(request, "NYUVoiceapp/login.html", {'form':form})
+	return render(request, "NYUVoiceapp/login.html", {'form':form,  'error': 'Username and password did not match'})
