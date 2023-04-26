@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from .forms import UserSignupForm, UserLoginForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
+from django.views.generic import ListView
  
 
 def home(request): 
@@ -70,3 +71,20 @@ def login(request):
 		form = UserLoginForm()
 
 	return render(request, "NYUVoiceapp/login.html", {'form':form,  'error': 'Username and password did not match'})
+
+def CourseListView(ListView):
+	model = CourseReview1
+	template_name="NYUVoiceapp/CourseReview.html"
+	context_object_name = 'courses'
+	ordering = ['-date_posted']
+
+
+
+
+
+
+
+
+
+
+
