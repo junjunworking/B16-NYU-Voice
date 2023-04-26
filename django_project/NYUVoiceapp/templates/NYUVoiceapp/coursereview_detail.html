@@ -61,7 +61,7 @@
 	    <br>
 	   	<p class="card-text">{{ object.date_posted|date:"F d, Y" }}
 	   	{% if object.author == user %}
-	   		<a href= "{% url 'course-delete' object.id% } ">Delete</a>
+	   		<a href="{% url 'course-delete' object.id %}">Delete</a>
 	   	{% endif %}
 	   </p>
 	  </div>
