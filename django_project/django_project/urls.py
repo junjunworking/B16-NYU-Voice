@@ -17,10 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from NYUVoiceapp import views
+from django.contrib.auth import views as au_views
 
 urlpatterns = [
+#admin
     path("admin/", admin.site.urls),
+    # auth
     path('signup/', views.signup, name="signup"),
+    path('login/', au_views.LoginView.as_view(template_name="NYUVoiceapp/login.html"), name="login"),
+    path('logout/', au_views.LoginView.as_view(template_name="NYUVoiceapp/logout.html"), name="logout"),
+#main page
     path("NYUVoiceapp/", include('NYUVoiceapp.urls')),
-
+    path("profile/", views.profile, name='profile'),
 ]
