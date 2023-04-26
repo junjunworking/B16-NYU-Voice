@@ -24,7 +24,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # auth
     path('signup/', views.signup, name="signup"),
-    path('login/', au_views.LoginView.as_view(template_name="NYUVoiceapp/login.html"), name="login"),
+    path('login/', views.login, name="login"),
     path('logout/', au_views.LoginView.as_view(template_name="NYUVoiceapp/logout.html"), name="logout"),
 #main page
     path("NYUVoiceapp/", include('NYUVoiceapp.urls')),

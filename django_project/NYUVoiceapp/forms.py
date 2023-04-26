@@ -3,17 +3,17 @@ from django.contrib.auth.models import Group,User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
-# class UserSignupForm(UserCreationForm):
-# 	email = forms.EmailField()
-# 	Student = forms.BooleanField(required=False)
-# 	model = User
-# 	fields = ["username","email", "password1", "password2", "group"]
+class UserSignupForm(UserCreationForm):
+	email = forms.EmailField()
+	Student = forms.BooleanField(required=False)
+	model = User
+	fields = ["username","email", "password1", "password2", "group"]
 
-# 	def clean_email(self):
-# 		email = self.cleaned_data.get('email')
-# 		if email.endswith('@nyu.edu'):
-# 			return email	
-# 		raise forms.ValidationError('Please Enter your NYU email')
+	def clean_email(self):
+		email = self.cleaned_data.get('email')
+		if email.endswith('@nyu.edu'):
+			return email	
+		raise forms.ValidationError('Please Enter your NYU email')
 
 
 
