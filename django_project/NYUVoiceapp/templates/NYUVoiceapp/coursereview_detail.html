@@ -46,28 +46,26 @@
     	<a href="{% url 'NYUVoiceapp-CourseReview' %}">
         <li><button class="main">course review</button></li></a>
         <li><button class="main">restaurant rating</button></li>
-        <a href="{% url 'course-create' %}">
-        <li><button class="navbar-nav">Add Review</button></li></a>
+        <a href="{% url 'logout' %}">
+        <li><button class="navbar-nav">log out</button></li></a>
         <a href="{% url 'profile' %}">
         <li><button class="navbar-nav">Profile</button></li></a>
-    </ul>
 
-	{% for CourseReview in CourseReviews %}
+    </ul>
 	<div class="card m-4">
-	  <h5 class="card-header">{{ CourseReview.author }}</h5>
+	  <h5 class="card-header">{{ object.author }}</h5>
 	  <div class="card-body">
-	    <h5 class="card-title">{{ CourseReview.title }}</h5>
-	    <h7 class="card-text">{{ CourseReview.content }}</h7>
+	    <h5 class="card-title">{{ object.title }}</h5>
+	    <h7 class="card-text">{{ object.content }}</h7>
 	    <br>
 	    <br>
-	   	<p class="card-text">{{ CourseReview.date_posted|date:"F d, Y" }}
-	   	</p>
+	   	<p class="card-text">{{ object.date_posted|date:"F d, Y" }}
 	   	{% if object.author == user %}
-	   		<a href= "{% url 'course-delete' object.id %} "><h1>Delete</h1></a>
+	   		<a href= "{% url 'course-delete' object.id% } ">Delete</a>
 	   	{% endif %}
+	   </p>
 	  </div>
 	</div>
-	{% endfor %}
 
     <!-- Optional JavaScript -->
 

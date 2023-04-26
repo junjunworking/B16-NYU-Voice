@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<title>Delete</title>
+<body>
+	{% block content %}
+	<h1>Delete Post</h1>
+	<form method="POST">
+	{% csrf_token %}
+	<h2>Are you sure you want to delete your coursereview "{{object.title}}"</h2>
+	<button type="submit">Yes</button>
+</form>
+	{% endblock content %}
+
+</body>
+</html>
+

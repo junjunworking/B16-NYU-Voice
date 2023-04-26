@@ -5,8 +5,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from .forms import UserSignupForm, UserLoginForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
-from django.views.generic import ListView
- 
+from django.views.generic import ListView, CreateView, DetailView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def home(request): 
 	#return what we want user to see
@@ -72,11 +72,38 @@ def login(request):
 
 	return render(request, "NYUVoiceapp/login.html", {'form':form,  'error': 'Username and password did not match'})
 
-def CourseListView(ListView):
+class CourseListView(ListView):
 	model = CourseReview1
 	template_name="NYUVoiceapp/CourseReview.html"
-	context_object_name = 'courses'
+	context_object_name = 'CourseReviews'
 	ordering = ['-date_posted']
+
+class CourseCreateView(LoginRequiredMixin, CreateView):
+	model = CourseReview1
+	fields = ['title','content']
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
+class CourseDetailView(DetailView):
+	model = CourseReview1
+
+class CourseDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+	model = CourseReview1
+	success_url = '/NYUVoiceapp/CourseReview'
+	def test_func(self):
+		CourseReview1 = self.get_object()
+		if self.request.user == CourseReview1.author:
+			return True
+		return False
+
+
+
+
+
+
+
+
 
 
 
