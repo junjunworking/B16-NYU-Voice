@@ -4,10 +4,12 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class UserSignupForm(UserCreationForm):
+
 	email = forms.EmailField()
 	Student = forms.BooleanField(required=False)
-	model = User
-	fields = ["username","email", "password1", "password2", "group"]
+	class Meta:
+		model = User
+		fields = ["username","email", "password1", "password2", "Student"]
 
 	def clean_email(self):
 		email = self.cleaned_data.get('email')
@@ -20,4 +22,4 @@ class UserSignupForm(UserCreationForm):
 class UserLoginForm(AuthenticationForm):
 	Student = forms.BooleanField(required=False)
 	model = User
-	fields = ["username","password", "group"]
+	fields = ["username","password", "Student"]
