@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<title>Course Review Post</title>
+<body>
+	{% block content %}
+	<h1>Course Review Post</h1>
+	<form method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">Post</button>
+</form>
+	{% endblock content %}
+
+</body>
+</html>
+

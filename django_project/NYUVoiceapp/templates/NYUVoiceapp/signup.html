@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<title>Sign Up</title>
+<body>
+	{% block content %}
+	<h1>Register</h1>
+	<form method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">Submit</button>
+	<p> Already have an account?</p>
+	<a href="{% url 'login' %}">Log In</a>
+
+</form>
+	{% endblock content %}
+
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<style>
+		body {
+		    background-color: rgba(232, 212, 228, 1);
+
+		}
+
+		h1 {
+		    color: white;
+		    text-align: center;
+		    font-size: 70px;
+		}
+
+
+		ul {
+		    list-style-type: none;
+		    flex-direction: row;
+		    font-size: 40px;
+		    display: flex;
+		    gap: 70px;
+		    justify-content:center;
+		}
+		article{
+			margin: 25px;
+		}
+		article, footer{
+			display: flex; 
+		}
+
+		article section{
+			border:  solid 0px black;
+			flex-grow:  1;
+			width:  70%;
+/*			max-width: 50%;
+			min-width: 50%;*/
+		}
+
+		#col1 img{
+			width: 100%;
+		}
+
+
+
+		#col2{
+			padding:  25px;
+			font-size:  14pt;
+			font-family:  "Helvetica", "Arial" sans-serif;
+		}
+
+
+		.main{
+		    height: 40px;
+		    width: 300px;
+		    background-color: white;
+
+		    
+		}
+
+
+	</style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+    <h1>NYU Voice Home</h1>
+    <ul>
+    	<a href="{% url 'NYUVoiceapp-home' %}">
+        <li><button class="main" onclick="">main page</button></li></a>
+    	<a href="{% url 'NYUVoiceapp-staffcoursereview' %}">
+        <li><button class="main">course review</button></li></a>
+        <li><button class="main">restaurant rating</button></li>
+        <a href="{% url 'logout' %}">
+        <li><button class="navbar-nav">log out</button></li></a>
+        <a href="{% url 'profile' %}">
+        <li><button class="navbar-nav">Profile</button></li></a>
+    </ul>
+    <div>
+	  <div id = "wrap"> <!-- id is used to identify the object, each is unique, cannot have it multiple times in one doc, class is the category; divs are invisibale-->
+
+      <article>
+         <section id = "col1">
+            <img width = "400px" height ="auto" src = "https://www.nyu.edu/content/dam/nyu/nyuStories/images/wallpaper/2018_03_WALLPAPER_FLAGCAB_PIXEL2_XL.jpg"/>
+         </section>
+         <section id="col2">
+         	<h2>About Us</h2>
+            <p>
+               Numerous apps and platforms serve individual purposes and share different information for the NYU community. The general user base is divided into many small groups for the personal information needed. Hence, the NYU community needs one central source of information, as various genres of information required by each community member are different. Meanwhile, there is a lack of an authoritative, informative, and safe place for NYU community members to share thoughts and information. As a result, a platform will be designed and developed to become the first go-to place for all NYU community members, which we named NYU Voice. If anyone needs any information related to their school life, NYU Voice has the answer.
+           </p>
+           <h2><a href="{% url 'NYUVoiceapp-staffcoursereview' %}">
+Course Review</a></h2>
+           <p>
+           	Not sure which class to take?
+      		Take a look at our course review from your classmates.
+           </p>
+           <h2>Restaurant Rating</h2>
+           <p>
+           	Not sure where to hang out with your friends for lunch?
+           	Take a look at our restaurant rating given by your classmates.
+
+         </section>
+      </article>
+     </div>
+
+
+
+</html>
+</body>
+</html>
+
