@@ -9,6 +9,7 @@ urlpatterns = [
     path('course/<int:pk>/delete/', views.CourseDeleteView.as_view(), name='course-delete'),
     path("staffhome/",views.staffhome, name="NYUVoiceapp-staffhome"),
     path("staffcoursereview/", views.StaffCourseListView.as_view(), name= "NYUVoiceapp-staffcoursereview"),
+    path("staffrestaurantrating/", views.StaffRestaurantRating.as_view(), name= "NYUVoiceapp-staffrestaurantrating"),
 
     path("rate/", views.rateListView.as_view(), name="NYUVoiceapp-rate"),
     path('res/<int:pk>/', views.rateView.as_view(), name='res-detail'),
