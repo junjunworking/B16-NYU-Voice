@@ -8,6 +8,39 @@ from django.contrib.auth import login as auth_login
 from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
+from .models import rate as rate1
+def rate(request):
+	context={
+		'rates': rate1.objects.all()
+	}
+	return render(request, "NYUVoiceapp/rate.html", context)
+
+class rateView(DetailView):
+	model = rate1
+
+class rateListView(ListView):
+	model = rate1
+	template_name="NYUVoiceapp/rate.html"
+	context_object_name = 'rates'
+	ordering = ['-date_posted']
+
+class rateCreateView(LoginRequiredMixin, CreateView):
+	model = rate1
+	fields = ['restaurant', 'rating']
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
+class rateDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+	model = rate1
+	success_url = '/NYUVoiceapp/rate'
+	def test_func(self):
+		rate1 = self.get_object()
+		if self.request.user == rate1.author:
+			return True
+		return False
+
+
 def home(request): 
 	#return what we want user to see
 	return render(request, "NYUVoiceapp/home.html")

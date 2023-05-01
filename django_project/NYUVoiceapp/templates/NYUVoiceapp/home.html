@@ -76,7 +76,8 @@
         <li><button class="main" onclick="">main page</button></li></a>
     	<a href="{% url 'NYUVoiceapp-CourseReview' %}">
         <li><button class="main">course review</button></li></a>
-        <li><button class="main">restaurant rating</button></li>
+		<a href="{% url 'NYUVoiceapp-rate' %}">
+        <li><button class="main">restaurant rating</button></li></a>
         <a href="{% url 'logout' %}">
         <li><button class="navbar-nav">log out</button></li></a>
         <a href="{% url 'profile' %}">
@@ -99,7 +100,7 @@
            	Not sure which class to take?
       		Take a look at our course review from your classmates.
            </p>
-           <h2>Restaurant Rating</h2>
+           <h2><a href="{% url 'NYUVoiceapp-rate' %}">Restaurant Rating</a></h2>
            <p>
            	Not sure where to hang out with your friends for lunch?
            	Take a look at our restaurant rating given by your classmates.

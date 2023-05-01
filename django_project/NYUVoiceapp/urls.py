@@ -10,4 +10,9 @@ urlpatterns = [
     path("staffhome/",views.staffhome, name="NYUVoiceapp-staffhome"),
     path("staffcoursereview/", views.StaffCourseListView.as_view(), name= "NYUVoiceapp-staffcoursereview"),
 
+    path("rate/", views.rateListView.as_view(), name="NYUVoiceapp-rate"),
+    path('res/<int:pk>/', views.rateView.as_view(), name='res-detail'),
+    path('res/new/', views.rateCreateView.as_view(), name='res-create'),
+    path('res/<int:pk>/delete/', views.rateDeleteView.as_view(), name='res-delete'),
+
 ]

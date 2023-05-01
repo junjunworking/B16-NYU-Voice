@@ -13,3 +13,20 @@ class CourseReview(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('course-detail', kwargs={'pk':self.pk})
+
+
+class rate(models.Model):
+	RATING_CHOICES = (
+		(1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+	restaurant = models.CharField(max_length=100)
+	rating = models.IntegerField(choices=RATING_CHOICES)
+	author = models.ForeignKey(User, on_delete=models.CASCADE)
+	date_posted = models.DateTimeField(default=timezone.now)
+
+	def get_absolute_url(self):
+		return reverse('res-detail', kwargs={'pk':self.pk})
