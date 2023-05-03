@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+        <h2>Send message to {{receiver}}</h2> 
+        <p id="user" hidden>{{user.username}}</p>
+<body>
+    <form id = "message_form">
+        <input id='message' placeholder="enter message">
+        <input type="submit">
+    </form>
+    <ul id='messages'></ul>
+
+    <script type="module">
+                //connect to the firebase
+                // Import the functions you need from the SDKs you need
+        import {getDatabase, set, ref, get, child, onValue, push, onChildAdded} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"; 
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDIfoUauRkvap3bzJUdMJ4XT-CVRUQ9ucI",
+            authDomain: "nyu-voice-b16-58f96.firebaseapp.com",
+            projectId: "nyu-voice-b16-58f96",
+            storageBucket: "nyu-voice-b16-58f96.appspot.com",
+            messagingSenderId: "760547024540",
+            appId: "1:760547024540:web:179563f14488944ed1d759"
+        };
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase();
+        const form_info = document.getElementById('message_form')
+
+        form_info.addEventListener('submit', function(event){
+            event.preventDefault()
+            sendMessage()
+        })
+
+        function sendMessage(){
+            const name = document.getElementById('user').textContent;
+            console.log(document.getElementById('message').value)
+            const message = document.getElementById('message').value;
+            push(ref(database, "message container/"),{
+                "sender": name,
+                "message": message,
+            })
+        }
+
+        const message_ref = ref(database, 'message container/' )
+        onChildAdded(message_ref, (data) =>{
+        console.log(data.val())
+        var html = "";
+        html += "<li>"
+            html+= data.val().sender+ ':'+data.val().message
+        html += "</li>"
+        document.getElementById("messages").innerHTML += html
+  })
+    </script>
+</body>
+</html>
