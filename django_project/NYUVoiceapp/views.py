@@ -142,7 +142,9 @@ class rateDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 			return True
 		return False
 	
-
+def direct_message(request, receiver):
+	receiver_context = {'receiver': receiver}
+	return render(request, "NYUVoiceapp/direct_message.html", receiver_context)
 
 
 

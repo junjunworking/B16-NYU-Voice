@@ -16,4 +16,7 @@ urlpatterns = [
     path('res/new/', views.rateCreateView.as_view(), name='res-create'),
     path('res/<int:pk>/delete/', views.rateDeleteView.as_view(), name='res-delete'),
 
+    path('direct_message/<str:receiver>', views.direct_message, name="NYUVoiceapp-message"),
+
+
 ]
