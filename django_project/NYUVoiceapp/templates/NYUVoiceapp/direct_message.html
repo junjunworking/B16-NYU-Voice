@@ -2,7 +2,7 @@
 <html>
 <head>
 </head>
-        <h2>Send message to {{receiver}}</h2> 
+        <h2 id="receiver_name">{{receiver}}</h2> 
         <p id="user" hidden>{{user.username}}</p>
 <body>
     <form id = "message_form">
@@ -36,17 +36,23 @@
             sendMessage()
         })
 
+        const name = document.getElementById('user').textContent;
+        const receiver_name = document.getElementById('receiver_name').textContent;
+        
         function sendMessage(){
-            const name = document.getElementById('user').textContent;
             console.log(document.getElementById('message').value)
             const message = document.getElementById('message').value;
-            push(ref(database, "message container/"),{
+            push(ref(database, "message container/"+ name+"s/" + receiver_name),{
+                "sender": name,
+                "message": message,
+            })
+            push(ref(database, "message container/"+ receiver_name+"s/" + name),{
                 "sender": name,
                 "message": message,
             })
         }
 
-        const message_ref = ref(database, 'message container/' )
+        const message_ref = ref(database, 'message container/' + name+"s/" + receiver_name)
         onChildAdded(message_ref, (data) =>{
         console.log(data.val())
         var html = "";
