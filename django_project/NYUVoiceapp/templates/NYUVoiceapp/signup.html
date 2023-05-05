@@ -5,11 +5,11 @@
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
-<body>
+<body class = 'login-page'>
     {% block content %}
     <div>
         <form method="post">
-			<h2>Register</h2>
+			<h2>Sign Up</h2>
 			{% csrf_token %}
 			<label>{{ form.username.label }}</label>
 			{{ form.username }}
