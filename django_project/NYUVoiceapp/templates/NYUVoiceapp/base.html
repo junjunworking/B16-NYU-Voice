@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>{% block title %}NYU Voice Home{% endblock title %}</title>
+</head>
+<body>
+    <div class="topnav">
+        <div class="menu-links-container">
+            <a href="{% url 'NYUVoiceapp-home' %}" class="home">Home</a>
+            <a href="{% url 'NYUVoiceapp-CourseReview' %}">Course Review</a>
+            <a href="{% url 'NYUVoiceapp-rate' %}">Restaurant Rating</a>
+        </div>
+        <div class="auth-links-container">
+            <a href="{% url 'logout' %}">Log Out</a>
+            <a href="{% url 'profile' %}">Profile</a>
+        </div>
+    </div>
+    <div class='main-content'>
+        {% block content %}
+        <!-- child templates -->
+        {% endblock content %}
+    </div>
+    <footer>
+        <div class="footer">&copy; New York University Tandon CS4523-A Team B16. All rights reserved.</p>
+    </footer>
+</body>
+</html>

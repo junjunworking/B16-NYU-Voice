@@ -1,0 +1,153 @@
+body {
+    background-color: rgba(232, 212, 228, 1);
+}
+
+/* Set styles for the topnav */
+.topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #57068c;  /* NYU's primary purple color */
+    overflow: hidden;
+    z-index: 999; /* make sure the navbar is above other elements */
+  }
+
+
+
+.topnav a {
+    float: left;
+    color: #fff;  /* white color for contrast */
+    text-align: center;
+    padding: 26px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  /* similar font to NYU's */
+}
+
+/* Hover effect */
+.topnav a:hover {
+    background-color: #411a5b;  /* darker shade of NYU purple */
+    color: #fff;
+}
+
+/* Specific styles for 'home' link */
+.topnav .home {
+    background-color: #7a14bd;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.menu-links-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.auth-links-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-content {
+  margin-top: 100px; /* Adjust the value to your liking */
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+
+ul {
+    list-style-type: none;
+    flex-direction: row;
+    font-size: 40px;
+    display: flex;
+    gap: 70px;
+    justify-content: center;
+}
+
+article {
+    margin: 25px;
+    display: flex;
+}
+
+article section {
+    border: solid 0px black;
+    flex-grow: 1;
+    width: 70%;
+}
+
+#col1 img {
+    width: 100%;
+}
+
+#col2 {
+    padding: 25px;
+    font-size: 14pt;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.main {
+    height: 40px;
+    width: 300px;
+    background-color: white;
+}
+
+.rating-list li {
+    float: right;
+    color: #ddd;
+    padding: 10px 5px;
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li {
+    color: orange;
+}
+
+.rating-list {
+    display: inline-block;
+    list-style: none;
+}
+.checked {
+    color: orange;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+
+.option {
+    margin-left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.option a {
+    text-decoration: none;
+}
+
+.option button {
+    padding: 10px;
+    background-color: #0000004b; /* Change as needed */
+    color: white; /* Change as needed */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option button:hover {
+    background-color: #00000082; /* Change as needed */
+}
+
+  
