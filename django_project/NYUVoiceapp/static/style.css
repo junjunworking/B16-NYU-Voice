@@ -1,8 +1,8 @@
 body {
-    background-color: rgba(232, 212, 228, 1);
+    background-color: rgb(255, 255, 255);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* Set styles for the topnav */
 .topnav {
     position: fixed;
     top: 0;
@@ -11,30 +11,28 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #57068c;  /* NYU's primary purple color */
+    background-color: #57068c; 
     overflow: hidden;
-    z-index: 999; /* make sure the navbar is above other elements */
-  }
+    z-index: 999;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 
 
 .topnav a {
     float: left;
-    color: #fff;  /* white color for contrast */
+    color: #fff;  
     text-align: center;
     padding: 26px 20px;
     text-decoration: none;
     font-size: 18px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  /* similar font to NYU's */
 }
 
-/* Hover effect */
 .topnav a:hover {
-    background-color: #411a5b;  /* darker shade of NYU purple */
+    background-color: #411a5b;
     color: #fff;
 }
 
-/* Specific styles for 'home' link */
 .topnav .home {
     background-color: #7a14bd;
     color: white;
@@ -56,7 +54,7 @@ body {
 }
 
 .main-content {
-  margin-top: 100px; /* Adjust the value to your liking */
+  margin-top: 100px;
 }
 
 h1 {
@@ -139,15 +137,78 @@ footer {
 
 .option button {
     padding: 10px;
-    background-color: #0000004b; /* Change as needed */
-    color: white; /* Change as needed */
+    background-color: #0000004b; 
+    color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .option button:hover {
-    background-color: #00000082; /* Change as needed */
+    background-color: #00000082; 
 }
 
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type=submit] {
+    background-color: #57068c;
+    color: white;
+    padding: 14px 100px; 
+    margin: 8px auto; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; 
+}
+
+
+button[type=submit]:hover {
+    background-color: #411a5b;
+}
+
+a {
+    color: #4CAF50;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.flashes li {
+    font-size: 16px;
+    background-color: #f0a5a0;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 5px;
+}
   
+.error-message:empty {
+    display: none;
+}

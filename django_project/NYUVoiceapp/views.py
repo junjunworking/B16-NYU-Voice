@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
+
 
 from .models import rate as rate1
 def home(request): 
@@ -69,10 +71,12 @@ def login(request):
 					return redirect("NYUVoiceapp-home")
 				else:
 					return redirect("NYUVoiceapp-staffhome")
+		else:
+			messages.add_message(request, messages.ERROR, 'Please enter a correct username and password.')
 	else:
 		form = UserLoginForm()
 
-	return render(request, "NYUVoiceapp/login.html", {'form':form,  'error': 'Username and password did not match'})
+	return render(request, "NYUVoiceapp/login.html", {'form':form})
 
 class CourseListView(ListView):
 	model = CourseReview1

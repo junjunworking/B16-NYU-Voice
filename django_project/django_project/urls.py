@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/', views.login, name="login"),
     path('logout/', au_views.LoginView.as_view(template_name="NYUVoiceapp/logout.html"), name="logout"),
 #main page
+    path('', views.home, name="home"),
     path("NYUVoiceapp/", include('NYUVoiceapp.urls')),
     path("profile/", views.profile, name='profile'),
 ]
