@@ -46,10 +46,12 @@
                 "sender": name,
                 "message": message,
             })
-            push(ref(database, "message container/"+ receiver_name+"s/" + name),{
+            if (name != receiver_name){
+                push(ref(database, "message container/"+ receiver_name+"s/" + name),{
                 "sender": name,
                 "message": message,
             })
+            }
         }
 
         const message_ref = ref(database, 'message container/' + name+"s/" + receiver_name)
