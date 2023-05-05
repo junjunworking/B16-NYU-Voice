@@ -83,12 +83,18 @@ article section {
     width: 70%;
 }
 
+
+#col1 {
+    flex: 2;
+}
+
 #col1 img {
     width: 100%;
 }
 
 #col2 {
-    padding: 25px;
+    flex: 6;
+    padding: 50px;
     font-size: 14pt;
     font-family: "Helvetica", "Arial", sans-serif;
 }
