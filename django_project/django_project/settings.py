@@ -121,3 +121,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # LOGIN_REDIRECT_URL = 'NYUVoiceapp-home'
 LOGIN_REDIRECT_URL = 'NYUVoiceapp-home'
+LOGOUT_REDIRECT_URL = 'home'

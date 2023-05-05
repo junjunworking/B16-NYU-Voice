@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from NYUVoiceapp import views
-from django.contrib.auth import views as au_views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
 #admin
@@ -25,7 +26,7 @@ urlpatterns = [
     # auth
     path('signup/', views.signup, name="signup"),
     path('login/', views.login, name="login"),
-    path('logout/', au_views.LoginView.as_view(template_name="NYUVoiceapp/logout.html"), name="logout"),
+    path('logout/', auth_views.LogoutView.as_view(), name="logout"),
 #main page
     path('', views.home, name="home"),
     path("NYUVoiceapp/", include('NYUVoiceapp.urls')),
