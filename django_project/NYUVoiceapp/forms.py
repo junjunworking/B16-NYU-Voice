@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class UserSignupForm(UserCreationForm):
 
-	email = forms.EmailField()
+	email = forms.CharField()
 	Student = forms.BooleanField(required=False)
 	class Meta:
 		model = User
