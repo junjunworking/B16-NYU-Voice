@@ -5,6 +5,14 @@ from django.urls import reverse
 
 
 # Create your models here.
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Student = models.BooleanField(default=True)
+
+    @property
+    def is_student(self):
+        return self.Student
+
 class CourseReview(models.Model):
 	title = models.CharField(max_length=100)
 	content = models.TextField()

@@ -50,6 +50,8 @@
 				{% endfor %}
 			</div>
 			{% endif%}
+			<label>{{ form.Student.label }}</label>
+			{{ form.Student }}
             <button type="submit">Submit</button>
             <p> Already have an account?</p>
             <a href="{% url 'login' %}">Log In</a>

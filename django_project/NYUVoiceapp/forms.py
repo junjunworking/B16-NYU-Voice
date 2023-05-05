@@ -20,9 +20,8 @@ class UserSignupForm(UserCreationForm):
 
 
 class UserLoginForm(AuthenticationForm):
-	Student = forms.BooleanField(required=False)
 	model = User
-	fields = ["username","password", "Student"]
+	fields = ["username","password"]
 	def __init__(self, *args, **kwargs):
 		super(UserLoginForm, self).__init__(*args, **kwargs)
 		self.error_messages['invalid_login'] = ''

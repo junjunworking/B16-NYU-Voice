@@ -8,6 +8,7 @@ from django.contrib.auth import login as auth_login
 from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
+from .models import UserProfile
 
 
 from .models import rate as rate1
@@ -36,20 +37,17 @@ def staffcoursereview(request):
 
 
 def signup(request):
-	if request.method == "POST":
-		form = UserSignupForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect("/login")
-			# group = form.cleaned_data["Student"]
-			# if group ==  True:
-			# 	return redirect("NYUVoiceapp-home")
-			# else:
-			# 	return redirect("NYUVoiceapp-staffhome")
-	else:
-		form = UserSignupForm()
+    if request.method == "POST":
+        form = UserSignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user_profile = UserProfile(user=user, Student=form.cleaned_data['Student'])
+            user_profile.save()
+            return redirect("/login")
+    else:
+        form = UserSignupForm()
 
-	return render(request, "NYUVoiceapp/signup.html", {'form':form})
+    return render(request, "NYUVoiceapp/signup.html", {'form': form})
 
 def profile(request):
 	return render(request, "NYUVoiceapp/profile.html")
@@ -66,11 +64,7 @@ def login(request):
 				return render(request, "NYUVoiceapp/login.html", {'form':form})
 			else:
 				auth_login(request, user)
-				group = form.cleaned_data["Student"]
-				if group == True:
-					return redirect("NYUVoiceapp-home")
-				else:
-					return redirect("NYUVoiceapp-staffhome")
+				return redirect("NYUVoiceapp-home")
 		else:
 			messages.add_message(request, messages.ERROR, 'Please enter a correct username and password.')
 	else:
