@@ -14,6 +14,8 @@ from django.contrib.auth.models import User
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from .decorators import staff_required
+
 
 
 
@@ -80,6 +82,7 @@ def login(request):
 	return render(request, "NYUVoiceapp/login.html", {'form':form})
 
 @login_required
+@staff_required
 def weekly_report(request):
     week_ago = timezone.now() - timedelta(days=7)
     course_reviews = CourseReview1.objects.filter(created_at__gte=week_ago)
