@@ -9,6 +9,8 @@ from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from .models import UserProfile
+from django.contrib.auth.models import User
+
 
 
 from .models import rate as rate1
@@ -88,7 +90,13 @@ class CourseCreateView(LoginRequiredMixin, CreateView):
 	model = CourseReview1
 	fields = ['title','content']
 	def form_valid(self, form):
-		form.instance.author = self.request.user
+		post_anonymously = self.request.POST.get('post_anonymously') == 'on'
+		if post_anonymously:
+			# Replace 'AnonymousUser' with the desired username for anonymous posts
+			anonymous_user, _ = User.objects.get_or_create(username='AnonymousUser')
+			form.instance.author = anonymous_user
+		else:
+			form.instance.author = self.request.user
 		return super().form_valid(form)
 
 class CourseDetailView(DetailView):

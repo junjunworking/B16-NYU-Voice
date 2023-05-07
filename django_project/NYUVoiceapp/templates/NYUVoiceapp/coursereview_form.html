@@ -9,6 +9,8 @@
 	<form method="POST">
 	{% csrf_token %}
 	{{form.as_p}}
+	<input type="checkbox" id="post_anonymously" name="post_anonymously">
+    <label for="post_anonymously">Post anonymously</label>
 	<button type="submit">Post</button>
 </form>
 
