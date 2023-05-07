@@ -38,3 +38,9 @@ class rate(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('res-detail', kwargs={'pk':self.pk})
+
+class BannedWord(models.Model):
+    word = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.word

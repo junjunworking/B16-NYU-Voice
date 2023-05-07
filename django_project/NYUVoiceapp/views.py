@@ -9,6 +9,7 @@ from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from .models import UserProfile
+from .models import BannedWord
 from django.contrib.auth.models import User
 
 
@@ -90,6 +91,13 @@ class CourseCreateView(LoginRequiredMixin, CreateView):
 	model = CourseReview1
 	fields = ['title','content']
 	def form_valid(self, form):
+		content = form.cleaned_data.get('content')
+		c_name = form.cleaned_data.get('title')
+		banned_words = BannedWord.objects.all()
+		for banned_word in banned_words:
+			if banned_word.word in content or banned_word.word in c_name:
+				messages.error(self.request, f"Banned word detected: {banned_word.word}")
+				return self.form_invalid(form)
 		post_anonymously = self.request.POST.get('post_anonymously') == 'on'
 		if post_anonymously:
 			# Replace 'AnonymousUser' with the desired username for anonymous posts
@@ -136,6 +144,12 @@ class rateCreateView(LoginRequiredMixin, CreateView):
 	model = rate1
 	fields = ['restaurant', 'rating']
 	def form_valid(self, form):
+		content = form.cleaned_data.get('restaurant')
+		banned_words = BannedWord.objects.all()
+		for banned_word in banned_words:
+			if banned_word.word in content:
+				messages.error(self.request, f"Banned word detected: {banned_word.word}")
+				return self.form_invalid(form)
 		post_anonymously = self.request.POST.get('post_anonymously') == 'on'
 		if post_anonymously:
 			# Replace 'AnonymousUser' with the desired username for anonymous posts

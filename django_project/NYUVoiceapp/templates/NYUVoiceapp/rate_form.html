@@ -7,6 +7,13 @@
 <body>
 	<h1>Restaurant Rating</h1>
 	<form method="POST">
+	{% if messages %}
+		<div class="flashes">
+			{% for message in messages %}
+				<li class="alert alert-{{ message.tags }}">{{ message }}</li>
+			{% endfor %}
+		</div>
+	{% endif %}
 	{% csrf_token %}
 	{{form.as_p}}
 	<input type="checkbox" id="post_anonymously" name="post_anonymously">
