@@ -11,6 +11,10 @@ from django.contrib import messages
 from .models import UserProfile
 from .models import BannedWord
 from django.contrib.auth.models import User
+from datetime import timedelta
+from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -74,6 +78,18 @@ def login(request):
 		form = UserLoginForm()
 
 	return render(request, "NYUVoiceapp/login.html", {'form':form})
+
+@login_required
+def weekly_report(request):
+    week_ago = timezone.now() - timedelta(days=7)
+    course_reviews = CourseReview1.objects.filter(created_at__gte=week_ago)
+    rates = rate1.objects.filter(created_at__gte=week_ago)
+
+    context = {
+        'course_reviews': course_reviews,
+        'rates': rates,
+    }
+    return render(request, 'NYUVoiceapp/weekly_report.html', context)
 
 class CourseListView(ListView):
 	model = CourseReview1

@@ -18,5 +18,7 @@ urlpatterns = [
 
     path('direct_message/<str:receiver>', views.direct_message, name="NYUVoiceapp-message"),
 
+    path('weekly_report/', views.weekly_report, name='NYUVoiceapp-weekly_report'),
+
 
 ]

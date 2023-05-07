@@ -283,3 +283,7 @@ a {
     background-color: #f0f0f0;
   }
   
+  .small-font {
+    font-size: 12px; /* Adjust the size as needed */
+}
+
