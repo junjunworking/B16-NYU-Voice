@@ -93,7 +93,7 @@ class CourseCreateView(LoginRequiredMixin, CreateView):
 		post_anonymously = self.request.POST.get('post_anonymously') == 'on'
 		if post_anonymously:
 			# Replace 'AnonymousUser' with the desired username for anonymous posts
-			anonymous_user, _ = User.objects.get_or_create(username='AnonymousUser')
+			anonymous_user, _ = User.objects.get_or_create(username='Mystery Man')
 			form.instance.author = anonymous_user
 		else:
 			form.instance.author = self.request.user
@@ -136,7 +136,13 @@ class rateCreateView(LoginRequiredMixin, CreateView):
 	model = rate1
 	fields = ['restaurant', 'rating']
 	def form_valid(self, form):
-		form.instance.author = self.request.user
+		post_anonymously = self.request.POST.get('post_anonymously') == 'on'
+		if post_anonymously:
+			# Replace 'AnonymousUser' with the desired username for anonymous posts
+			anonymous_user, _ = User.objects.get_or_create(username='Mystery Man')
+			form.instance.author = anonymous_user
+		else:
+			form.instance.author = self.request.user
 		return super().form_valid(form)
 
 class rateDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
