@@ -74,8 +74,6 @@ def login(request):
 			else:
 				auth_login(request, user)
 				return redirect("NYUVoiceapp-home")
-		else:
-			messages.add_message(request, messages.ERROR, 'Please enter a correct username and password.')
 	else:
 		form = UserLoginForm()
 

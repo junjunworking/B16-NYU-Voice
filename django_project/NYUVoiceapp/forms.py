@@ -24,4 +24,4 @@ class UserLoginForm(AuthenticationForm):
 	fields = ["username","password"]
 	def __init__(self, *args, **kwargs):
 		super(UserLoginForm, self).__init__(*args, **kwargs)
-		self.error_messages['invalid_login'] = ''
+		self.error_messages['invalid_login'] = 'Invalid username or password!'
