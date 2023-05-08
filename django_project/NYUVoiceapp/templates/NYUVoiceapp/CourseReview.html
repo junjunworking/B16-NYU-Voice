@@ -14,7 +14,6 @@
 </div>
 {% endif %}
 {% for CourseReview in CourseReviews %}
-
 <div class="card m-4">
 	{% if CourseReview.author != "Mystery Man" %}
 		<h5 class="card-header"><a href="{% url 'NYUVoiceapp-message' CourseReview.author %}"> {{CourseReview.author }} </a></h5>

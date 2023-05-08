@@ -8,7 +8,11 @@
 <h1>Course Review</h1>
 {% for CourseReview in CourseReviews %}
 <div class="card m-4">
-	<h5 class="card-header"><a href="{% url 'NYUVoiceapp-message' CourseReview.author %}"> {{CourseReview.author }} </a></h5>
+	{% if CourseReview.author != "Mystery Man" %}
+		<h5 class="card-header"><a href="{% url 'NYUVoiceapp-message' CourseReview.author %}"> {{CourseReview.author }} </a></h5>
+	{% else %}
+		<h5 class="card-header"> {{CourseReview.author }}</h5>
+	{% endif %}
 	<div class="card-body">
 	<h5 class="card-title">{{ CourseReview.title }}</h5>
 	<h7 class="card-text">{{ CourseReview.content }}</h7>
