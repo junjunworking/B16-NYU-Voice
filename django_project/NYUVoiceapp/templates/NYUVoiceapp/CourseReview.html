@@ -6,11 +6,13 @@
 </head>
 <body>
 <h1>Course Review</h1>
+{% if request.user.userprofile.is_student %}
 <div class="option">
 	<a href="{% url 'course-create' %}">
 		<button >Add Review</button>
 	</a>
 </div>
+{% endif %}
 {% for CourseReview in CourseReviews %}
 
 <div class="card m-4">
