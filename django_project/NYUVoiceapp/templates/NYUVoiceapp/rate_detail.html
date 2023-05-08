@@ -12,7 +12,7 @@
 	</a>
 </div>
 <div class="card m-4">
-	<h5 class="card-header">{{ object.author }}</h5>
+	<h5 class="card-header"><a href="{% url 'NYUVoiceapp-message' CourseReview.author %}">{{ object.author }}</a></h5>
 	<div class="card-body">
 	<h5 class="card-title">{{ object.restaurant }}</h5>
 	<h7 class="card-text">{{ object.rating }} out of 5</h7>
