@@ -14,7 +14,7 @@
 
 {% for rate in rates %}
 <div class="card m-4">
-	{% if rate.author != "Mystery Man" %}
+	{% if rate.author|stringformat:'s' != "Mystery Man" %}
 		<h5 class="card-header"><a href="{% url 'NYUVoiceapp-message' rate.author %}">{{ rate.author }}</a></h5>
 	{% else %}
 		<h5 class="card-header">{{ rate.author }}</h5>
