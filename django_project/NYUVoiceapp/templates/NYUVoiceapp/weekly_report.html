@@ -1,0 +1,24 @@
+{% extends "NYUVoiceapp/base.html" %}
+
+{% block content %}
+    <h1>NYU Voice - Weekly Report</h1>
+    <div, class = 'small-font'>
+        <h2>Course Reviews</h2>
+        <div>
+            {% for course_review in course_reviews %}
+                <li>{{ course_review.title }} - {{ course_review.created_at|date:"F d, Y" }}</li>
+            {% empty %}
+                <li>No course reviews in the past week.</li>
+            {% endfor %}
+        </div>
+
+        <h2>Ratings</h2>
+        <div>
+            {% for rate in rates %}
+                <li>{{ rate.restaurant }} - {{ rate.rating }} - {{ rate.created_at|date:"F d, Y" }}</li>
+            {% empty %}
+                <li>No ratings in the past week.</li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'NYUVoiceapp/base.html' %}
+
+{% block content %}
+    <div>
+        <article>
+            <section id="col1">
+                <img width="100px" src="https://www.nyu.edu/content/dam/nyu/nyuStories/images/wallpaper/2018_03_WALLPAPER_FLAGCAB_PIXEL2_XL.jpg"/>
+            </section>
+            <section id="col2">
+                <h2>About Us</h2>
+                <p>
+                    Numerous apps and platforms serve individual purposes and share different information for the NYU community. The general user base is divided into many small groups for the personal information needed. Hence, the NYU community needs one central source of information, as various genres of information required by each community member are different. Meanwhile, there is a lack of an authoritative, informative, and safe place for NYU community members to share thoughts and information. As a result, a platform will be designed and developed to become the first go-to place for all NYU community members, which we named NYU Voice. If anyone needs any information related to their school life, NYU Voice has the answer.
+                </p>
+                {% if request.user.userprofile.is_student %}
+                    <h2><a href="{% url 'NYUVoiceapp-CourseReview' %}">Course Review</a></h2>
+                {%else%}
+                    <h2><a href="{% url 'NYUVoiceapp-staffcoursereview' %}">Course Review</a> </h2>
+                {% endif %}
+                <p>
+                    Not sure which class to take? Take a look at our course review from your classmates.
+                </p>
+                {% if request.user.userprofile.is_student %}
+                    <h2><a href="{% url 'NYUVoiceapp-rate' %}">Restaurant Rating</a></h2>
+                {%else%}
+                    <h2><a href="{% url 'NYUVoiceapp-staffrestaurantrating' %}"> Restaurant Rating</a></h2>
+                {% endif %}
+                <p>
+                    Not sure where to hang out with your friends for lunch? Take a look at our restaurant rating given by your classmates.
+                </p>
+            </section>
+        </article>
+    </div>
+{% endblock %}
